@@ -1,5 +1,7 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState, useEffect } from 'react'
+
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import {
   Modal,
@@ -16,7 +18,17 @@ import {
   InputGroup,
   Form,
   Row,
-} from 'react-bootstrap';
+} from 'react-bootstrap'
+
+const DataSmuggler = () => {
+  const [Movie, setMovie] = useState('null')
+
+  useEffect(() => {
+    // fetch('https://swapi.py4e.com/api/films/1/')
+      .then((response) => response.json())
+      .then((data) => setMovie(data.message))
+  }, [])
+}
 
 function App() {
   return (
@@ -26,18 +38,15 @@ function App() {
           <Card.Img
             fluid={true}
             style={{ height: '25rem' }}
-            src='https://source.unsplash.com/random/?desert,dunes'
+            src='https://source.unsplash.com/random/1920x1080/?desert,dunes,'
           />
           <Card.ImgOverlay>
             <Row sm={3} className='justify-content-center'>
-              <div>
-                <h1
-                  className={
-                    'fw-bolder fs-1 text-end pt-5 '
-                  }>
+              <div className=''>
+                <h1 id className='fw-bolder fs-1 text-end pt-5 '>
                   STAR WARS
                   <br />
-                  <h5>MovieInfoApi</h5>{' '}
+                  <h5>MovieInfoApi</h5>
                 </h1>
               </div>
             </Row>
@@ -50,8 +59,8 @@ function App() {
                 <FloatingLabel
                   controlId='floatingInput'
                   label='Störvårss'
-                  className={'mb-3'}>
-                  <Form.Control size='lg' type='text' controlId='box' />
+                  className='mb-3'>
+                  {/* <Form.Control size='lg' type='search' value={searchQuery} /> */}
                 </FloatingLabel>
               </Col>
             </Row>
@@ -60,6 +69,6 @@ function App() {
         <div></div>
       </Container>
     </div>
-  );
+  )
 }
-export default App;
+export default App
