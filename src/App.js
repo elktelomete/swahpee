@@ -1,46 +1,65 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Button, Alert, Breadcrumb, Card, Container } from "react-bootstrap";
+import {
+  Modal,
+  FloatingLabel,
+  Col,
+  Button,
+  Alert,
+  Breadcrumb,
+  Card,
+  Container,
+  Image,
+  ListGroup,
+  ListGroupItem,
+  InputGroup,
+  Form,
+  Row,
+} from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="container">
-      <div className="bodyDiv">
-        <div>
-          <Card className="bg-dark text-white">
-            <Card.Img
-              style={{ height: "40rem" }}
-              src="https://source.unsplash.com/random/?dunes"
-            />
-            <Card.Body />
-            <Card.ImgOverlay>
-              <Card.Title>examplu</Card.Title>
-              <Card.Text>cacamamams</Card.Text>
-            </Card.ImgOverlay>
-          </Card>
+    <div className='bodyDiv'>
+      <Container>
+        <Card className='bg-dark text-light'>
+          <Card.Img
+            fluid={true}
+            style={{ height: '25rem' }}
+            src='https://source.unsplash.com/random/?desert,dunes'
+          />
+          <Card.ImgOverlay>
+            <Row sm={3} className='justify-content-center'>
+              <div>
+                <h1
+                  className={
+                    'fw-bolder fs-1 text-end pt-5 '
+                  }>
+                  STAR WARS
+                  <br />
+                  <h5>MovieInfoApi</h5>{' '}
+                </h1>
+              </div>
+            </Row>
+          </Card.ImgOverlay>
+        </Card>
+        <div className='p-5'>
+          <Container>
+            <Row className='justify-content-md-center'>
+              <Col>
+                <FloatingLabel
+                  controlId='floatingInput'
+                  label='Störvårss'
+                  className={'mb-3'}>
+                  <Form.Control size='lg' type='text' controlId='box' />
+                </FloatingLabel>
+              </Col>
+            </Row>
+          </Container>
         </div>
-        <header className="cabeza">
-          <h6 style={{ color: "white" }}>didn du nuttin</h6>
-          <div>
-            <br />
-            <br />
-          </div>
-          <div className="container">
-            <Button variant="primary">caca</Button>
-            <br />
-            <br />
-            <Button>test</Button>
-          </div>
-          <Breadcrumb>
-            <Breadcrumb.Item>caca</Breadcrumb.Item>
-            <Breadcrumb.Item>maca</Breadcrumb.Item>
-            <Breadcrumb.Item>waca</Breadcrumb.Item>
-          </Breadcrumb>
-        </header>
-      </div>
+        <div></div>
+      </Container>
     </div>
   );
 }
-
 export default App;
