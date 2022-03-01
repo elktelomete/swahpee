@@ -26,7 +26,7 @@ const DataSmuggler = () => {
   useEffect(() => {
     // fetch('https://swapi.py4e.com/api/films/1/')
       .then((response) => response.json())
-      .then((data) => setMovie(data.message))
+      .then((data) => setMovie(data.release_date))
   }, [])
 }
 
