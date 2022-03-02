@@ -20,25 +20,65 @@ import {
   Row,
 } from 'react-bootstrap'
 
-const DataSmuggler = () => {
-  const [Movie, setMovie] = useState('null')
 
-  useEffect(() => {
-    // fetch('https://swapi.py4e.com/api/films/1/')
-      .then((response) => response.json())
-      .then((data) => setMovie(data.release_date))
-  }, [])
-}
+// const data = async() => {
+//   const response = await fetch('https://swapi.py4e.com/api/films');
+//   const firstMovie = await response.json();
+//     console.log(firstMovie.results);
+//   }
+  
+  function App() {
+  
+// useEffect(() => {  
+//     async function data() {
+//       const response = await fetch('https://swapi.py4e.com/api/films');
+//       const movieList = await response.json();
+//       const releaseYearList = movieList.map((release_date) => {
+//        if (results.) 
+//       }); 
+//       console.table();
+//     }data()
+//   }, []);
+  
+    
+  useEffect(() => {  
+    async function data() {
+      const response = await fetch('https://swapi.py4e.com/api/films');
+      const movieList = await response.json();
+      const movieValues = Object.values(movieList.results);
+      console.log(movieValues);
+      // const filteredList = movieValues.map(item => item[title]); 
+      // console.log(filteredList);
+      
+      function selectFewerProps(movie){
+        const {release_date, title } = movie;
+        return {release_date, title };
+      }
 
-function App() {
+      const shortlist = movieValues.map(selectFewerProps);
+      console.log(shortlist);
+      
+      const text = shortlist.toString();
+      console.log(text);
+      
+      
+      
+      // const movieArr = Object.entries(movieList);
+           
+      // console.log(movieArr[0][1].release_date, movieArr[0][1].title);        
+
+      };data()
+    }, []);
+
+    
   return (
     <div className='bodyDiv'>
       <Container>
         <Card className='bg-dark text-light'>
           <Card.Img
-            fluid={true}
+            // fluid={true}
             style={{ height: '25rem' }}
-            src='https://source.unsplash.com/random/1920x1080/?desert,dunes,'
+            src='https://source.unsplash.com/random/1920x1080/?sanddunes'
           />
           <Card.ImgOverlay>
             <Row sm={3} className='justify-content-center'>
